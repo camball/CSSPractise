@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* By defining variable in root pseudo-class, it is global */
+:root {
+    --header-height: 75px;
+    --header-margin: 10px;
+    --header-border-radius: 10px;
+}
+
+body {
+    /* Override default margin to make full viewport width */
+    margin: 0;
+    background-color: #30011e;
+}
+
+/* Just for testing `position: fixed;` in header */
+main {
+    margin: auto 20px;
+    color: white;
+}
+
+main span {
+    font-size: 20;
+}
+
+.header-spacer {
+    height: calc(var(--header-height) + 2 * var(--header-margin));
+}
+
+header {
+    margin: var(--header-margin);
+    height: var(--header-height);
+    width: calc(100vw - 2 * var(--header-margin));
+    background-color: #b6cca1;
+    border-radius: var(--header-border-radius);
+    position: fixed;
+}
+
+.nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* To fix the 4px gap between inline-block elements */
+    font-size: 0;
+    border-top-right-radius: var(--header-border-radius);
+    border-bottom-right-radius: var(--header-border-radius);
+}
+
+.nav-item {
+    float: left;
+    height: var(--header-height);
+    width: 75px;
+    color: #545454;
+    font-size: initial;
+    text-align: center;
+}
+
+.nav-item a {
+    display: inline-block;
+    --padding: 8px;
+    padding: var(--padding);
+    text-decoration: none;
+    color: inherit;
+    line-height: calc(var(--header-height) - 2 * var(--padding));
+}
+
+.nav-item:hover {
+    background-color: #b68f40;
+    color: #30011e;
+}
+
+.nav-item.trynow,
+.nav-item.trynow:hover {
+    float: right;
+    background-color: #d7fcd4;
+}
+
+.nav-item-logo {
+    float: left;
+    height: var(--header-height);
+    width: var(--header-height);
+}
+
+.logo {
+    height: 100%;
+}
